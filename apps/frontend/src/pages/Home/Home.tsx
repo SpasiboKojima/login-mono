@@ -12,7 +12,7 @@ function Home() {
     <div className="w-full max-w-1100px mx-a px-4 flex-1">
       <BackButton onClick={() => dispatch(authLogoutRequest())}>Logout</BackButton>
       <div className="mt-20">
-        <p className="c-white text-center">welcome {additionalUserInfo?.profile.name}.</p>
+        <p className="c-white text-center">welcome {additionalUserInfo?.name}.</p>
       </div>
     </div>
   );

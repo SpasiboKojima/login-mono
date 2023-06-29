@@ -1,15 +1,8 @@
-import { AuthProvider, GoogleAuthProvider } from 'firebase/auth';
-
-import { auth } from './firebase';
-
-export const signInWithPopup = (provider: AuthProvider) =>
-  auth
-    .signInWithPopup(provider)
-    .then((response) => ({ response }))
-    .catch((error) => ({ error }));
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 export const signInWithGoogle = () => {
   const provider = new GoogleAuthProvider();
+  const auth = getAuth();
 
-  return signInWithPopup(provider);
+  return signInWithPopup(auth, provider);
 };

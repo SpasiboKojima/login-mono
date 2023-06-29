@@ -11,6 +11,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@local/api": "workspace:^",
     "@local/ui-kit": "workspace:^",
     "@reduxjs/toolkit": "^1.9.5",
     "connected-react-router": "^6.9.3",

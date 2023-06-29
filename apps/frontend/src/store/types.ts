@@ -1,7 +1,4 @@
-
 export interface AdditionalUserInfo {
-  profile: {
-    name: string
-    email: string
-  }
+  name: string;
+  email: string;
 }

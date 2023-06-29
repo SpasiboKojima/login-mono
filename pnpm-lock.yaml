@@ -6,6 +6,9 @@ importers:
 
   apps/frontend:
     dependencies:
+      '@local/api':
+        specifier: workspace:^
+        version: link:../../packages/api
       '@local/ui-kit':
         specifier: workspace:^
         version: link:../../packages/ui-kit
