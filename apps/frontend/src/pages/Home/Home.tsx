@@ -1,17 +1,16 @@
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { authLogoutRequest } from '~/store/auth/authActions';
+import { selectAuthAdditionalUserInfo } from '~/store/auth/authSelectors';
 
 import { BackButton } from '@local/ui-kit';
 
-import { selectAuthAdditionalUserInfo } from '../../store/auth/authSelectors';
-
 function Home() {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const additionalUserInfo = useSelector(selectAuthAdditionalUserInfo);
 
   return (
     <div className="w-full max-w-1100px mx-a px-4 flex-1">
-      <BackButton onClick={() => navigate('/login')}>Logout</BackButton>
+      <BackButton onClick={() => dispatch(authLogoutRequest())}>Logout</BackButton>
       <div className="mt-20">
         <p className="c-white text-center">welcome {additionalUserInfo?.profile.name}.</p>
       </div>

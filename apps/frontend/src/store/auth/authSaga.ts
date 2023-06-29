@@ -1,7 +1,7 @@
 // import { auth, FirebaseUser, GoogleAuthProvider } from 'global/firebase';
 import { all, fork, put, takeEvery } from 'redux-saga/effects';
 
-import { authError, authLoginGoogleRequest, authLogoutRequest, authLogoutResponse } from './authActions';
+import { authError, authLoginGoogleRequest, authLoginGoogleResponse, authLogoutRequest, authLogoutResponse } from './authActions';
 
 // import type { AuthProvider } from 'firebase/auth';
 
@@ -52,12 +52,17 @@ function* watchLoginGoogleRequest() {
       //     additionalUserInfo,
       //     user: { uid },
       //   } = response;
-      //   yield put(
-      //     authLoginGoogleResponse({
-      //       additionalUserInfo,
-      //       uid,
-      //     })
-      //   );
+      yield put(
+        authLoginGoogleResponse({
+          additionalUserInfo: {
+            profile: {
+              email: 'someemail',
+              name: 'alex'
+            }
+          },
+          uid: '',
+        })
+      );
       // }
     } catch (error: any) {
       yield put(

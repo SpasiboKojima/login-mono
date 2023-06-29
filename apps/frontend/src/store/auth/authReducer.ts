@@ -13,13 +13,7 @@ interface AuthSlice {
 const initialState: AuthSlice = {
   userId: '',
   authorized: false,
-  // additionalUserInfo: undefined,
-  additionalUserInfo: {
-    profile: {
-      name: 'Alex',
-      email:'someemail'
-    }
-  },
+  additionalUserInfo: undefined,
   error: undefined,
 };
 
@@ -38,6 +32,7 @@ const authReducer = createReducer(initialState, (builder) =>
       state.userId = uid;
       state.error = undefined;
       state.additionalUserInfo = additionalUserInfo;
+      state.authorized = true;
     })
     .addCase(authError, (state, { payload: { error } }) => {
       state.error = error.message;
